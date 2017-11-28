@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Trivia Game: Texas Edition</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+	<header>
+		<h1 id="title">Texas Trivia</h1>
+	</header>
+
+
+	<div id="startPlay">
+		<h2>Click to Start</h2>
+		<section>
+			<button id="startButton">Start</button>
+		</section>	
+	</div>
+
+
+	
+
+
+<!-- make ordered list for questions -->
+
+	<div id="triviaBox" class="row">
+		<div id="statusBar">
+			<h3 id="timeBar">Time Remaining: <span id="counter"></span></h3>
+			<h3>Question <span id="questionNo"></span></h3>
+			<div>Correct: <span id="correctDisplay">0</span></div>
+			<div>Incorrect: <span id="incorrectDisplay">0</span></div>
+			<div id="message"></div>
+		</div>
+		<div id="question" class="col-xl-12"></div>
+		<div id="answers">
+			<div id="0" type="radio" class="pick" class="col-xs-12 col-md-6"></div>
+			<div id="1" type="radio" class="pick" class="col-xs-12 col-md-6"></div>
+			<div id="2" type="radio" class="pick" class="col-xs-12 col-md-6"></div>
+			<div id="3" type="radio" class="pick" class="col-xs-12 col-md-6"></div>
+		</div>		
+		<div id="questionImg">
+			<img id="questionImage" src="">
+		</div>
+		<div id="correctAnswer"></div>
+	</div>
+
+
+	<div id="resultsBox">
+		<div id="resultsBanner">
+			<h2>Game Over</h2>
+			<h3>Your Results</h3>	
+		</div>
+
+		<div id="resultsCount" class="row">
+			<div class="col-xs-12 col-md-4">Total Correct: <span id="resultsCorrect"></span></div>
+			<div class="col-xs-12 col-md-4">Total Incorrect: <span id="resultsIncorrect"></span></div>
+			<div class="col-xs-12 col-md-4">Percentage: <span id="percentage"></span>%</div>
+		</div>
+
+		<div id="resultsMessage"></div>
+		<div id="resultsImg">
+			<img id="resultsImage" src="">
+		</div>
+	</div>
+
+	<script type="text/javascript" src="assets/javascript/app.js"></script>
+</body>
+</html>

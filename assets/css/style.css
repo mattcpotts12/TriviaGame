@@ -1,0 +1,98 @@
+body {
+	/*background-image: url("../images/texas-flag.jpg");*/
+
+}
+
+header {
+	background-image: url("../images/texas-flag-header.jpg");
+	background-size: 100% 100%;
+	overflow: hidden;
+	margin-bottom: 35px;
+}
+
+h1 {
+	text-align: center;
+	padding: 20px 0 20px 0;
+	overflow: hidden;
+}
+
+#title {
+	font-size: 100px;
+	text-shadow: -2px 0 #999999,0 2px #999999,2px 0 #999999,0 -2px #999999;
+}
+
+#startPlay {
+	text-align: center;
+	padding: 50px 0 50px 0;
+	margin: auto;
+	background-image: url("../images/texas-map.jpg");
+	background-size: 100% 100%;
+
+	width: 80%;
+	height: 800px;
+	overflow: hidden;
+	border: 1px solid;
+}
+
+
+#triviaBox {
+	margin: auto;
+
+	background-color: yellow;
+	border: 1px solid;
+}
+
+#statusBar {
+	text-align: center;
+	
+	background-color: orange;
+	border: 1px solid;
+}
+
+#question {
+	font-size: 30px;
+	text-align: center;
+}
+
+#answers {
+	line-height: 70px;
+	font-size: 25px;
+}
+
+#questionImg {
+	text-align: center;
+}
+
+#questionImage {
+	width: 50%;
+	height: auto;
+	margin: auto;
+	text-align: center;
+}
+
+#correctAnswer {
+	text-align: center;
+	font-size: 30px;
+	margin-top: 10px;
+}
+
+#resultsBanner {
+	text-align: center;
+	font-weight: bold;
+	border-bottom: 1px solid;
+}
+
+#resultsCount {
+	text-align: center;
+	font-size: 35px;
+}
+
+#resultsMessage {
+	text-align: center;
+	font-size: 55px;
+	font-weight: bold;
+}
+
+#resultsImg {
+	text-align: center;
+}
