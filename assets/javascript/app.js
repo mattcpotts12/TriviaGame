@@ -5,7 +5,7 @@ var losses = 0;
 var count;
 var timerId;
 var highScore = 0;
-var counter = 8;
+var counter = 15;
 var triviaQuestions = [
 	{question:"How many different flags have flown over Texas?",
 	answers:["Three","Five","Six","Four"],
@@ -107,7 +107,7 @@ function updateAnswer() {
 	if (round == triviaQuestions.length) {
 		endGame();
 	} else {
-		setTimeout(nextQuestion, 4000);	
+		setTimeout(nextQuestion, 5000);	
 	}
 
 }
@@ -140,7 +140,7 @@ function endGame() {
 function nextQuestion() {
 	round++;
 	count = round - 1
-	counter = 8;
+	counter = 15;
 	
 	console.log("Round #: " + round);
 
