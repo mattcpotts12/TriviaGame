@@ -4,7 +4,8 @@ var wins = 0;
 var losses = 0;
 var count;
 var timerId;
-var counter = 20;
+var highScore = 0;
+var counter = 8;
 var triviaQuestions = [
 	{question:"How many different flags have flown over Texas?",
 	answers:["Three","Five","Six","Four"],
@@ -48,7 +49,7 @@ var triviaQuestions = [
 
 	{question:"What is the state motto?",
 	answers:["Friendship", "Brotherhood", "Loyalty", "Lone Star Pride"],
-	correct:0,
+	correct:1,
 	image:"friendship.jpg"}, 
 
 	{question:"What is the state vegetable?",
@@ -69,21 +70,8 @@ var triviaQuestions = [
 	{question:"What is the official state dance?",
 	answers:["Square Dance", "Waltz", "Texas Two-Step", "Cotton-Eyed Joe"],
 	correct:0,
-	image:"squareDance.jpg"},
-
-	{question:"What soft drink was invented in Waco?",
-	answers:["Coca-Cola", "Sprite","Dr. Pepper", "RC Cola"],
-	correct:2,
-	image:"dr_pepper.jpg"},
-
-	{question:"What natural resource made Spindletop famous in Texas?",
-	answers:["Oil", "Don't pick this one", "Salt", "Uranium"],
-	correct:0,
-	image:"Spindletop.jpg"}      //add comma for more question
+	image:"squareDance.jpg"}      //add comma for more question
 ];
-
-
-
 
 function correctAnswer() {
 	wins++;
@@ -107,69 +95,45 @@ function updateAnswer() {
 	$("#questionImage").attr("src", displayImage);
 	$("#timeBar").hide();
 	$("#answers").hide();
-	$("#questionImage").animate().fadeIn(1000);
+	$("#questionImage").animate().fadeIn(2000);
 	$("#correctAnswer").show();
+	
+	setTimeout(nextQuestion, 4000);
+
 	var correctPick = triviaQuestions[count].correct
 	$("#correctAnswer").html("Correct Answer is " + triviaQuestions[count].answers[correctPick])
-
-	if (round == triviaQuestions.length) {
-		endGame();
-	} else {
-		setTimeout(nextQuestion, 3000);	
-	}
-
 }
-
-
-function endGame() {
-	$("#triviaBox").hide();
-	$("#resultsBox").show();
-
-	$("#resultsCorrect").html(wins);
-	$("#resultsIncorrect").html(losses);
-
-	var percentage = [([wins*1] * 100) / ([losses+wins]*1)];
-	$("#percentage").html(percentage);
-
-	if (percentage >= 70) {
-		$("#resultsMessage").html("Congratulations, You Passed!!");
-		$("#resultsImage").attr("src", "assets/images/texas-flag2.jpg");
-		$("#resultsImage").animate().fadeIn(1000);
-	} else {
-		$("#resultsMessage").html("You Failed.  Please Leave Texas");
-		$("#resultsImage").attr("src", "assets/images/catgiphy.mp4");
-		$("#resultsImage").animate().fadeIn(1000);
-	}
-}
-
-
 
 
 function nextQuestion() {
 	round++;
 	count = round - 1
-	counter = 20;
+	counter = 8;
 	
 	console.log("Round #: " + round);
 
 	$("#correctAnswer").hide();
-	$("#timeBar").show();
+	$("#timeBar").show(1000);
 	$("#message").empty();
 	$("#questionImage").hide();
 	$("#questionNo").html(round);
 	$("#question").animate().fadeIn(1000);
-	$("#answers").animate().fadeIn(1000);
+	$("#answers").animate().fadeIn(3000);
 
 	$("#question").html(triviaQuestions[count].question);
-	$("#0").html("A. " + triviaQuestions[count].answers[0]);
-	$("#1").html("B. " + triviaQuestions[count].answers[1]);
-	$("#2").html("C. " + triviaQuestions[count].answers[2]);
-	$("#3").html("D. " + triviaQuestions[count].answers[3]);
+	$("#0").html(triviaQuestions[count].answers[0]);
+	$("#1").html(triviaQuestions[count].answers[1]);
+	$("#2").html(triviaQuestions[count].answers[2]);
+	$("#3").html(triviaQuestions[count].answers[3]);
+
 
 	var correctPick = triviaQuestions[count].correct
 	console.log("Correct Answer: " + triviaQuestions[count].answers[correctPick]);
 
+
 	startTimer();
+
+
 }
 
 
@@ -185,8 +149,10 @@ function updateTime() {
 	counter--
 	if (counter === 0) {
 		incorrectAnswer();
-		clearInterval(timerId);
+		clearInterval(timerId)
+		
 		$("#message").html("Time's Up");
+		// $("#timeBar").hide();
 	}  //if (counter)
 }  //updateTime
 
@@ -194,7 +160,6 @@ function updateTime() {
 
 
 $(document).ready(function() {
-	$("#resultsBox").hide();
 	$("#statusBar").hide();
 	$("#triviaBox").hide();
 	$("#questionImage").hide();
@@ -203,8 +168,39 @@ $(document).ready(function() {
 		$("#statusBar").animate().fadeIn(1000);
 		$("#triviaBox").animate().fadeIn(1000);
 		$("#startPlay").hide();
-		nextQuestion();
-	}) //document ready
+		function startGame() {
+			console.log("Round #: " + round);
+			
+			count = round - 1
+
+			$("#questionImage").hide();
+			$("#startPlay").hide();
+			$("#statusBar").animate().fadeIn(1000);
+			// $("#triviaBox").animate().fadeIn(1000);
+			$("#questionNo").html(round);
+			$("#question").animate().fadeIn(1000);
+			$("#answers").animate().fadeIn(3000);
+
+			$("#question").html(triviaQuestions[count].question);
+			$("#0").html(triviaQuestions[count].answers[0]);
+			$("#1").html(triviaQuestions[count].answers[1]);
+			$("#2").html(triviaQuestions[count].answers[2]);
+			$("#3").html(triviaQuestions[count].answers[3]);
+
+
+			var correctPick = triviaQuestions[count].correct
+			console.log("Correct Answer: " + triviaQuestions[count].answers[correctPick]);
+
+
+			startTimer();
+
+		}  //startGame function
+
+	// startGame();
+
+	nextQuestion();
+
+	}) //startButton on click
 
 	$(".pick").on("click", function() {
 		var userGuess = $(this).attr("id");
@@ -214,7 +210,21 @@ $(document).ready(function() {
 		} else {
 			incorrectAnswer();
 		}
+	$(".pick").hover(function() {
+		$(this).css("background-color", "blue",);
+	}, function() {
+		$(this).css("background-color", "");
+	});  //pick hover function
 	}) //pick on click
+
+
+
+
+
+
+
+
+
 })  //document ready
 
 

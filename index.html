@@ -6,6 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  	<link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Rock+Salt|Tangerine" rel="stylesheet">
 </head>
 <body>
 	<header>
@@ -13,33 +14,41 @@
 	</header>
 
 
-	<div id="startPlay">
-		<h2>Click to Start</h2>
-		<section>
-			<button id="startButton">Start</button>
-		</section>	
+	<div class="row" id="startPlay">
+		<div class="col-xs-12 col-md-6" id="startClick">
+			<p class="startMessage">Test Your Texas Knowledge</p>
+			<br>
+			<p class="startMessage">15 Questions</p>
+			<br>
+			<p class="startMessage">Click to Start</p>
+			<button id="startButton">Start</button>	
+			<br><br><br>	
+		</div>
+		<img class="col-xs-12 col-md-6" id="startImage" src="assets/images/texas-map.jpg">
 	</div>
 
-
-	
-
-
-<!-- make ordered list for questions -->
-
-	<div id="triviaBox" class="row">
+	<div id="triviaBox">
 		<div id="statusBar">
-			<h3 id="timeBar">Time Remaining: <span id="counter"></span></h3>
-			<h3>Question <span id="questionNo"></span></h3>
+			<h3>Question <span id="questionNo"></span> of 15</h3>
 			<div>Correct: <span id="correctDisplay">0</span></div>
 			<div>Incorrect: <span id="incorrectDisplay">0</span></div>
+			<h3 id="timeBar">Time Remaining: <span id="counter"></span></h3>
 			<div id="message"></div>
 		</div>
-		<div id="question" class="col-xl-12"></div>
-		<div id="answers">
-			<div id="0" type="radio" class="pick" class="col-xs-12 col-md-6"></div>
-			<div id="1" type="radio" class="pick" class="col-xs-12 col-md-6"></div>
-			<div id="2" type="radio" class="pick" class="col-xs-12 col-md-6"></div>
-			<div id="3" type="radio" class="pick" class="col-xs-12 col-md-6"></div>
+		<div id="question"></div>
+		<div id="answers" class="row">
+			<div class="col-xs-12 col-md-6">
+				<div id="0" class="pick"></div>
+			</div>
+			<div class="col-xs-12 col-md-6">
+				<div id="1" class="pick"></div>
+			</div>
+			<div class="col-xs-12 col-md-6">
+				<div id="2" class="pick"></div>
+			</div>
+			<div class="col-xs-12 col-md-6">
+				<div id="3" class="pick"></div>
+			</div>
 		</div>		
 		<div id="questionImg">
 			<img id="questionImage" src="">
